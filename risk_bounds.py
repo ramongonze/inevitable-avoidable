@@ -180,7 +180,7 @@ def plot(table: pd.DataFrame, path: str, xlabel: str, figsize: tuple[float, floa
     risk_line, = ax.plot(x, table["risk"], marker="o", color=risk_color, **markers)
     group_ticks(ax, table["group"], max_tick_labels)
     ax.set_xlabel(xlabel, labelpad=7)
-    ax.set_ylabel("Expected gain", labelpad=7)
+    ax.set_ylabel("Risk", labelpad=7)
     ax.grid(axis="y", color="0.3", linewidth=0.4, alpha=0.13)  # faint horizontal lines only
     ax.set_axisbelow(True)
     ax.set_xlim(-1.5, len(table) + 0.5)  # a tiny space before the first group and after the last
@@ -189,7 +189,7 @@ def plot(table: pd.DataFrame, path: str, xlabel: str, figsize: tuple[float, floa
     legend = ax.legend(
         [upper_line, lower_line, risk_line, baseline],
         ["Upper bound (at most 1)", "Lower bound",
-         r"$G_g[\pi^{\delta_\theta,1} \vartriangleright \mathsf{R}]$", r"Prior gain $\Phi(\theta)$"],
+         r"$G_g[\pi^{\delta_\theta,1} \vartriangleright \mathsf{R}]$", r"Base-rate risk $\Phi(\theta)$"],
         loc="lower left", ncol=legend_cols, frameon=True, fancybox=False,
         borderaxespad=0.6, borderpad=0.6, handlelength=1.8, handletextpad=0.5,
         columnspacing=1.0)

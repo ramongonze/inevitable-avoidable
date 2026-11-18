@@ -147,7 +147,7 @@ def plot_risks(ax, theta: pd.DataFrame, n: int) -> None:
     boxes = ax.boxplot([r[~np.isnan(r)] for r in risks.T], positions=x, **box_style(BOX))
     boxes["boxes"][0].set_label(r"Risk $r_q(h)$ in group $q$")
     ax.hlines(table["base-rate risk"], x - 0.4, x + 0.4, color=BASE_RATE, linewidth=1.6, zorder=3,
-              label=r"Population risk $\Phi(\theta)$")
+              label=r"Base-rate risk $\Phi(\theta)$")
     k = theta.shape[1]
     span = 1 - 1 / k
     ax.set_ylim(1 / k - 0.14 * span, 1 + 0.02 * span)  # no risk lies below 1/k: room for the text
